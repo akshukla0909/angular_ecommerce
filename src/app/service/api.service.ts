@@ -1,12 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
-  // httpClient = inject(HttpClient)
 
   private apiUrl = 'https://fakestoreapi.com/products';
 
@@ -17,5 +15,4 @@ export class ApiService {
   getAllProducts(){
     return this.http.get(this.apiUrl)
   }
-
 }

@@ -1,0 +1,50 @@
+<div class="absolute top-16">
+    <div class=" bg-red-10 shadow w-full">
+        <div class="flex items-center gap-16 p-6 ml-3 text-xl">
+            <div class="itme cursor-pointer hover:text-blue-600">
+                <h6>All Products</h6>
+            </div>
+            <div class="itme cursor-pointer hover:text-blue-600">
+                <h6>Electronics</h6>
+            </div>
+            <div class="itme cursor-pointer hover:text-blue-600">
+                <h6>Fashion</h6>
+            </div>
+        </div>
+    </div>
+    
+    <div class="w-full px-10 py-5">
+        <div class=" grid grid-cols-4 gap-10">
+            @for (product of productList; track product) {
+                
+                <div class="rounded-md shadow group flex w-full max-w-xs flex-col overflow-hidden bg-white">
+                  <a class="flex  h-48 w-72" href="#">
+                    <div class="scale-[.6] bg-red-200 overflow-hidden">
+                    <img class="h-full w-full object-cover object-center" src="{{product.image}}" alt="product image" />
+                    </div>
+                  </a>
+                  <div class="pb-2">
+                    <a href="#">
+                      <h5  class="text-center px-4 truncate text-ellipsis tracking-tight text-gray-500">{{product.title}}</h5>
+                    </a>
+                    <div class="mb-5 flex justify-center">
+                      <p>
+                        <span class="text-sm font-bold text-gray-900">${{product.price}}</span>
+                        <span class="text-sm text-gray-400 line-through">$499</span>
+                      </p>
+                    </div>
+                    <div class="add-cart text-center mx-10 mb-2">
+                        <a href="#" class="text-white flex items-center justify-center outline-none rounded-md bg-[#AE7FEB] px-5 py-2.5 text-center text-sm font-medium text-whit focus:outline-none ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            
+                        Add to cart</a>
+
+                    </div>
+                  </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

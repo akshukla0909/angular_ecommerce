@@ -1,24 +1,37 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CartService } from '../../service/cart.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './cart.component.html',
 })
 export class CartComponent {
  
-  cartItems : any [] = []
+  public product : any [] = [] ;
+  public grandTotal !: Number;
 
   constructor(private cartservice : CartService){}
 
-  ngOnInit() : void{
-        this.cartservice.addToCartEvent.subscribe((product: any)=>{
-          this.cartItems.push(product)
-          console.log(this.cartItems);
-        })
+  ngOnInit() : void {
+    this.cartservice.getProducts()
+    .subscribe(res=>{
+      this.product = res;
+      this.grandTotal = this.cartservice.getTotalPrice()
+      console.log(this.grandTotal);
+      
+    })
+  }
+  
+  removeItem(product: any){
+      this.cartservice.removeCartItem(product);
+  }
+
+  emptyCart(){
+    this.cartservice.removeAllCart()
   }
 
 }

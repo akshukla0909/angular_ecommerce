@@ -14,11 +14,11 @@
     </div>
     
     <div class="w-full px-10 py-5">
-        <div class=" grid grid-cols-4 gap-10">
+        <div class="grid grid-cols-4 gap-10">
             @for (product of productList; track product) {
                 
-                <div  class="cursor-pointer rounded-md shadow group flex w-full max-w-xs flex-col overflow-hidden bg-white">
-                  <a [routerLink]="'/product/'+product.id" class="flex  h-48 w-72" >
+                <div  class="cursor-pointer rounded-md shadow group flex w-full max-w-xs flex-col justify-center overflow-hidden bg-white">
+                  <a  class="flex  h-48 w-72" >
                     <div class="scale-[.6] bg-red-200 overflow-hidden">
                     <img class="h-full w-full object-cover object-center" src="{{product.image}}" alt="product image" />
                     </div>
@@ -31,10 +31,11 @@
                         <span class="text-sm text-gray-400 line-through">$499</span>
                       </p>
                     </div>
-                    <div class="add-cart text-center mx-10 mb-2">
-                        <button (click)="addToCart(product)" class="text-white flex items-center justify-center outline-none rounded-md bg-[#AE7FEB] px-5 py-2.5 text-center text-sm font-medium text-whit focus:outline-none ">
-                        Add to cart
+                    <div  class="add-cart text-center mx-10 mb-2">
+                        <button [routerLink]="'/product/'+product.id" class="text-white flex items-center justify-center outline-none rounded-md bg-[#AE7FEB] px-5 py-2.5 text-center text-sm font-medium text-whit focus:outline-none ">
+                         View 
                         </button>
+                        
                     </div>
                   </div>
                 </div>
